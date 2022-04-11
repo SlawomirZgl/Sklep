@@ -29,6 +29,16 @@ namespace WebApiSklepu
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(c =>
+            {
+                c.AddPolicy(
+                    name: "AllowOrigin",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().Build();
+                    });
+            });
+
             services.AddScoped<IUsersService, UsersService>();
             services.AddScoped<IAuthorizationService, AuthorizationService>();
             services.AddScoped<IProductsService, ProductsService>();
@@ -44,7 +54,7 @@ namespace WebApiSklepu
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
+        {         
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -56,6 +66,8 @@ namespace WebApiSklepu
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("AllowOrigin");
 
             app.UseAuthorization();
 

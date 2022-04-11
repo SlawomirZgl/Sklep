@@ -1,0 +1,16 @@
+<div *ngIf="data.length > 0">
+    Ilosc: {{data.length}}
+</div>
+<table border="1">
+    <tr *ngFor="let p of data">
+        <td>
+            Id: {{p.id}}
+        </td>
+        <td>
+            Nazwa: {{p.name}}
+        </td>
+        <td>
+            Price: {{p.price}}
+        </td>
+    </tr>
+</table>

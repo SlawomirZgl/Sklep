@@ -1,0 +1,7 @@
+
+<app-products (onClick)="onDodawanieClick($event)" [data] = "produkty"></app-products>
+<br/><br/><br/>
+
+<button *ngIf="wyswietl" (click) = "onWyczyscClick()">Wyczysc koszyk</button>
+<app-basket [data] = "basket">
+</app-basket >

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,13 @@ namespace WebApiSklepu.Controllers
     [ApiController]
     public class AuthorizationController : ControllerBase
     {
+        private readonly IAuthorizationService auth;
+
+        public AuthorizationController(IAuthorizationService auth)
+        {
+            this.auth = auth;
+        }
+
         // GET: api/<AuthorizationController>
         [HttpGet]
         public IEnumerable<string> Get()

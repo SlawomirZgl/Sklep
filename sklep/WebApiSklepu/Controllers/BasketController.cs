@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Services;
+using Services.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +14,18 @@ namespace WebApiSklepu.Controllers
     [ApiController]
     public class BasketController : ControllerBase
     {
+        private readonly IBasketService basket;
+
+        public BasketController(IBasketService basket)
+        {
+            this.basket = basket;
+        }
+
         // GET: api/<BasketController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<BasketItemDto> Get()
         {
-            return new string[] { "value1", "value2" };
+            return basket.Get();
         }
 
         // GET api/<BasketController>/5
@@ -27,21 +36,24 @@ namespace WebApiSklepu.Controllers
         }
 
         // POST api/<BasketController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpPost("{id}")]
+        public IEnumerable<BasketItemDto> Post(int id, [FromBody] double count)
         {
+            return basket.Post(id, count);
         }
 
         // PUT api/<BasketController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IEnumerable<BasketItemDto> Put([FromQuery] int basketItemId, [FromQuery] double count)
         {
+            return basket.Put(basketItemId, count);
         }
 
         // DELETE api/<BasketController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IEnumerable<BasketItemDto> Delete(int id)
         {
+            return basket.Delete(id);
         }
     }
 }

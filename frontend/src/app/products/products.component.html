@@ -1,0 +1,17 @@
+
+<ol>
+    <li *ngFor="let p of data">
+        Nazwa: {{p.name}}
+        <button (click)="onDodajClick(p)">Dodaj</button>
+        <ol>
+            Id:{{p.id}}
+        </ol>
+        <ol>
+            Description:{{p.description}}
+        </ol>
+        <ol>
+            Price:{{p.price}}
+        </ol>
+    </li> 
+</ol>
+  

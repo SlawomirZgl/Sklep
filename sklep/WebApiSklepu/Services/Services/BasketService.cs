@@ -60,15 +60,15 @@ namespace Services
             return list;
         }
 
-        public IEnumerable<BasketItemDto> Post(int productId, double count)
+        public IEnumerable<BasketItemDto> Post(int id, double count)
         {
             BasketItem basketItem = new BasketItem();
             _database.BasketItems.Add(new BasketItem { 
                                 Count = count, 
-                                IdProduct = productId, 
+                                IdProduct = id, 
                                 IdUser = _database.Users.First().Id,
                             });
-
+            _database.SaveChanges();
 
             return Get();
         }

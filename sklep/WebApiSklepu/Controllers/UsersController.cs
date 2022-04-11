@@ -14,7 +14,7 @@ namespace WebApiSklepu.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        public IUsersService usersService;
+        public readonly IUsersService usersService;
 
         public UsersController(IUsersService usersService)
         {
@@ -28,29 +28,12 @@ namespace WebApiSklepu.Controllers
             return usersService.Get(dto);
         }
 
-        // GET api/<UsersController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
         // POST api/<UsersController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public UserDto Post([FromQuery] PostUserDto dto)
         {
+            return usersService.Post(dto);
         }
 
-        // PUT api/<UsersController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<UsersController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }
