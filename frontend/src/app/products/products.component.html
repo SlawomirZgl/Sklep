@@ -1,8 +1,10 @@
-
+<!-- 
 <ol>
     <li *ngFor="let p of data">
         Nazwa: {{p.name}}
-        <button (click)="onDodajClick(p)">Dodaj</button>
+        
+        <button mat-button (click)="onDodajClick(p)">Dodaj</button>
+        <button mat-button (click)="onEdycjaClick(p)">Edytuj</button>
         <ol>
             Id:{{p.id}}
         </ol>
@@ -13,5 +15,13 @@
             Price:{{p.price}}
         </ol>
     </li> 
-</ol>
-  
+</ol> -->
+<mat-nav-list>
+    <mat-list-item *ngFor="let p of data">        
+         <div mat-line>{{ p.name }} </div>
+         <div mat-line>{{p.description}}</div>
+         <div mat-line>Price: {{p.price}}</div>        
+         <button mat-raised-button color="primary" (click)="onDodajClick(p)">Dodaj</button>
+         <button mat-raised-button color="secondary" (click)="onEdycjaClick(p)">Edytuj</button>
+    </mat-list-item>
+</mat-nav-list>

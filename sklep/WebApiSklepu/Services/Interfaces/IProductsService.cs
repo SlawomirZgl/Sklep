@@ -10,6 +10,7 @@ namespace Services
     public interface IProductsService
     {
         PaginatedData<ProductDto> Get(PaginationDto dto);
+        ProductDto GetById(int productid);
         ProductDto Put(int productId, PostProductDto sto);
         ProductDto Post(PostProductDto sto);
         bool Delete(int produtId);

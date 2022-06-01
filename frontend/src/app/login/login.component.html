@@ -1,0 +1,16 @@
+<p>login works!</p>
+<form class="form-signing" #loginform="ngForm" (ngSubmit)="login(loginform)">
+
+        <mat-error *ngIf="invalidLogin"> 
+            Invalid username or Password
+        </mat-error>        
+        <mat-form-field appearance="fill">
+            <mat-label>Email address</mat-label>
+            <input type="text" matInput name="login" ngModel placeholder="Username" required autofocus>     
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input type="password" id="password" name="password" matInput ngModel class="form-control" placeholder="Password" required>
+        </mat-form-field>
+        <button mat-raised-button color="primary" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+</form>

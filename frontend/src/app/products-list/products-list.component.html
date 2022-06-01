@@ -1,0 +1,17 @@
+<app-products (onClick)="onDodawanieClick($event)" [data] = "produkty"></app-products>
+<br/><br/><br/>
+
+<mat-form-field appearance="fill">
+<label for="page">Strona: </label><input matInput type="number" name="page" [(ngModel)]="page" />
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+<label for="rowsPerPage">Liczba elementow: </label><input matInput type="number" name="rowsPerPage" [(ngModel)]="rowsPerPage" />
+</mat-form-field>
+
+<br/>
+<button mat-raised-button color="primary" (click)="refresh()">Odswiez</button>
+<br/>
+<button mat-button *ngIf="wyswietl" (click) = "onWyczyscClick()">Wyczysc koszyk</button>
+<app-basket [data] = "basket">
+</app-basket>

@@ -38,7 +38,7 @@ namespace Services
                 removed = true;
                 _database.Products.Remove(product);
             }
-
+            _database.SaveChanges();
             return removed;
         }
 
@@ -146,12 +146,29 @@ namespace Services
             return data;
         }
 
+        public ProductDto GetById(int productid)
+        {
+            Product product = _database.Products.SingleOrDefault(x => x.Id == productid);
+
+            if (product == null)
+                return null;
+
+            return new ProductDto
+                        {
+                            Id = product.Id,
+                            Description = product.Description,
+                            Name = product.Name,
+                            Price = product.Price,
+                        };
+        }
+
         public ProductDto Post(PostProductDto dto)
         {
             _database.Products.Add(new Product { Name = dto.Name, Description = dto.Description, Price = dto.Price });
             var product = _database.Products.LastOrDefault();
             ProductDto productDto = new ProductDto { Id = product.Id, Description = product.Description, 
                                                         Name = product.Name, Price = product.Price };
+            _database.SaveChanges();
             return productDto;
         }
 
@@ -170,7 +187,7 @@ namespace Services
                     Description = product.Description,
                     Name = product.Name
                 };
-
+            _database.SaveChanges();
             return p;
         }
     }

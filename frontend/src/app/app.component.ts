@@ -11,24 +11,24 @@ import { ProductsService } from './products.service';
 })
 export class AppComponent {
   title = 'taiipLab2';
-  produkty: Product[]=[];
+  navLinks: any[];
 
-   constructor(productsService: ProductsService,
-    private basketService: BasketService){
-      productsService.get().subscribe(response => this.produkty = response.data);
+   constructor(){     
+    this.navLinks = [
+      {
+          label: 'Produkty',
+          link: './products',
+          index: 0
+      }, {
+          label: 'Users',
+          link: './users',
+          index: 1
+      }, {
+          label: 'Basket',
+          link: './basket',
+          index: 2
+      }, 
+  ];
    }
-
-  wyswietl:boolean = false;
-   
-  basket: BasketItemDto[]=[];
-
-  onDodawanieClick(event: Product){ 
-    this.basketService.post(event.id, 1).subscribe(response => this.basket = response);
-  }
-
-  onWyczyscClick(){
-    this.basket = [];
-    this.wyswietl = false;
-  }
 
 }

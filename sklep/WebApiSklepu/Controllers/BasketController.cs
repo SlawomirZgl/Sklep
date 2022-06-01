@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Services;
 using Services.DTO;
 using System;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 namespace WebApiSklepu.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
+    [ApiController, Authorize]
     public class BasketController : ControllerBase
     {
         private readonly IBasketService basket;
@@ -54,6 +55,12 @@ namespace WebApiSklepu.Controllers
         public IEnumerable<BasketItemDto> Delete(int id)
         {
             return basket.Delete(id);
+        }
+        // DELETE api/<BasketController>/5
+        [HttpDelete]
+        public bool Delete()
+        {
+            return basket.Clear();
         }
     }
 }

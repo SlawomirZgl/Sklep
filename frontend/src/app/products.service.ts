@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PaginatedData } from 'src/model/paginated-data';
 import { Pagination } from 'src/model/pagination';
+import { PostProductDto } from 'src/model/post-products';
 import { Product } from 'src/model/Product';
 
 @Injectable({
@@ -33,5 +34,13 @@ export class ProductsService {
     '&rowsPerPage=' + pagination.rowsPerPage +
     '&sortAscending=' + pagination.sortAscending
     );
+  }
+
+  getById(productId: number): Observable<Product> {
+    return this.httpClient.get<Product>('https://localhost:44312/api/Products/' + productId);
+  }
+
+  put (productId:number, dto: PostProductDto): Observable<Product> {
+    return this.httpClient.put<Product>('https://localhost:44312/api/Products/' + productId, dto);
   }
 }

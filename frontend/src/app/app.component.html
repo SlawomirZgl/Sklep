@@ -1,7 +1,11 @@
 
-<app-products (onClick)="onDodawanieClick($event)" [data] = "produkty"></app-products>
-<br/><br/><br/>
+<nav mat-tab-nav-bar>
+    <a mat-tab-link
+    *ngFor="let link of navLinks"
+    [routerLink]="link.link"
+    >   
+    {{link.label}}
+    </a>
+</nav>
 
-<button *ngIf="wyswietl" (click) = "onWyczyscClick()">Wyczysc koszyk</button>
-<app-basket [data] = "basket">
-</app-basket >
+<router-outlet></router-outlet>

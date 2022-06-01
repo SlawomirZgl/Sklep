@@ -122,7 +122,6 @@ C:\Users\Student\Desktop\sklep\WebApiSklepu\bin\Debug\net5.0\Microsoft.IdentityM
 C:\Users\Student\Desktop\sklep\WebApiSklepu\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\Student\Desktop\sklep\WebApiSklepu\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Student\Desktop\sklep\WebApiSklepu\bin\Debug\net5.0\Microsoft.OpenApi.dll
-C:\Users\Student\Desktop\sklep\WebApiSklepu\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\Student\Desktop\sklep\WebApiSklepu\bin\Debug\net5.0\SQLitePCLRaw.batteries_v2.dll
 C:\Users\Student\Desktop\sklep\WebApiSklepu\bin\Debug\net5.0\SQLitePCLRaw.nativelibrary.dll
 C:\Users\Student\Desktop\sklep\WebApiSklepu\bin\Debug\net5.0\SQLitePCLRaw.core.dll
@@ -169,3 +168,4 @@ C:\Users\Student\Desktop\sklep\WebApiSklepu\obj\Debug\net5.0\WebApiSklepu.RazorT
 C:\Users\Student\Desktop\sklep\WebApiSklepu\obj\Debug\net5.0\WebApiSklepu.csproj.CopyComplete
 C:\Users\Student\Desktop\sklep\WebApiSklepu\obj\Debug\net5.0\WebApiSklepu.genruntimeconfig.cache
 C:\Users\Student\Desktop\sklep\WebApiSklepu\bin\Debug\net5.0\Services\bin\Debug\net5.0\Services.deps.json
+C:\Users\Student\Desktop\sklep\WebApiSklepu\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

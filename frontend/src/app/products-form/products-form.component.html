@@ -1,0 +1,24 @@
+<form *ngIf="product != null" #productForm = "ngForm" (ngSubmit) = "onSubmit(productForm)">
+
+
+
+    <mat-form-field appearance="fill">
+    <label for="name">Nazwa</label>
+    <input type="text" name="name" id="name" matInput [(ngModel)]="product.name"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+    <label for="description">Opis</label>
+    <input type="text" name="description"  id="description" matInput [(ngModel)]="product.description"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+    <label for="price">Cena</label>
+    <input type="number" name="price" id="price" matInput [(ngModel)]="product.price"/>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Zapisz</button>
+</form> 
+<div *ngIf="product == null">
+    Wczytywanie
+</div>

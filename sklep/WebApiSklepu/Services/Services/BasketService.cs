@@ -28,7 +28,7 @@ namespace Services
                 }                
                 removed = true;
             }
-
+            _database.SaveChanges();
             return removed;
         }
 
@@ -39,7 +39,7 @@ namespace Services
             {
                 _database.BasketItems.Remove(basketItem);
             }
-
+            _database.SaveChanges();
             return Get();        
         }
 
@@ -56,7 +56,7 @@ namespace Services
                     list.Add(basketItemDto);
                 }
             }
-
+            _database.SaveChanges();
             return list;
         }
 
@@ -69,7 +69,6 @@ namespace Services
                                 IdUser = _database.Users.First().Id,
                             });
             _database.SaveChanges();
-
             return Get();
         }
 
@@ -78,6 +77,7 @@ namespace Services
             BasketItem basketItem = _database.BasketItems.Where(b => b.Id == basketItemId).FirstOrDefault();
             basketItem.Count = count;
             _database.BasketItems.Update(basketItem);
+            _database.SaveChanges();
             return Get();
         }
     }
